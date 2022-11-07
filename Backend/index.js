@@ -1,6 +1,4 @@
-const express = require("express")
-const url = require('url');
-const path = require('path');
+const express = require("express");
 
 const app = express();
 const host = 'localhost';
@@ -56,5 +54,5 @@ app.delete('/api/movie/:id', (req,res) => {
 })
 
 app.listen(port, () => {
-    console.log("Server is running");
+    console.log(`Server is running on http://${host}:${port}`);
 })
