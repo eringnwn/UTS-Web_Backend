@@ -38,8 +38,12 @@ body {
 }
 
 /* CSS TASK movie.html */
+.movie {
+  background-color: #e1e1e3;
+}
+
 .movie .head {
-  background-color: #e1e4e8;
+  background-color: #f2f2f2;
   border: 0.5px solid #e1e4e8;
   display: flex;
 }
@@ -65,8 +69,8 @@ body {
 
 .main .thumbnail {
   text-align: center;
-  margin: 0;
-  padding: 0;
+  background-color: #fcfcfc;
+  padding-bottom: 10px;
 }
 
 .main .thumbnail img {
@@ -83,13 +87,15 @@ body {
   font-weight: normal;
 }
 
-.main .overview {
-  background-color: #adb1b8;
-  padding-left: 20px;
+.main span h3 {
+  padding: 0 20px;
+  margin: 0;
+  line-height: 1.5;
 }
 
 .main .isi_txt {
-  padding: 0 20px;
+  padding: 5px 20px;
+  background-color: #fcfcfc;
 }
 
 .main .isi_txt p,

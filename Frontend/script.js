@@ -53,20 +53,21 @@ fetch("tmdbMovies.json")
           <h3> ${tom_jerry.title} (${tom_jerry.release_date.slice(0, 4)})
           <br>
           <span>  ${tom_jerry.certification} | ${tom_jerry.release_date} | ${tom_jerry.original_language} </span>     
-          </h3>  
+          </h3>
         </div>
         
-        <div class = "overview">
-          <h3> Overview </h3>
-        </div>
-                
+        <span> <h3> Overview </h3> </span>
+                        
         <div class = "isi_txt">
+          <div class = "director">
             <p> ${tom_jerry.overview} </p>
-          
-            <p class = "director"> ${tom_jerry.directors[0].name}
+            <p> ${tom_jerry.directors[0].name}
             <br>
             <span> Director </span>
             </p>
+
+          </div>
+           
             
             <div class = "writer"> 
               <div class = "col" 
@@ -75,14 +76,14 @@ fetch("tmdbMovies.json")
                 <span> Writers </span>
                 </p>
       
-                <p> ${tom_jerry.writers[1].name} 
+                <p> ${tom_jerry.writers[2].name} 
                 <br>
                 <span> Writers </span>
                 </p>
               </div>
       
               <div class = "col"
-                <p> ${tom_jerry.writers[2].name} 
+                <p> ${tom_jerry.writers[1].name} 
                 <br>
                 <span> Writers </span>
                 </p>
@@ -95,13 +96,13 @@ fetch("tmdbMovies.json")
                 <br>
                 <span> Casts </span>
       
-                <p> ${tom_jerry.cast[1].name} 
+                <p> ${tom_jerry.cast[2].name} 
                 <br>
                 <span> Casts </span>
               </div>
               
               <div class = "col">
-                <p> ${tom_jerry.cast[2].name} 
+                <p> ${tom_jerry.cast[1].name} 
                 <br>
                 <span> Casts </span>
               </div>
