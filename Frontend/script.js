@@ -10,18 +10,18 @@ fetch("tmdbMovies.json")
       let div_content = document.createElement("div");
       div_content.className = "content";
       div_content.innerHTML = `
-      <span> ${list_view.title}</span>
+      ${list_view.title.length >= 29 ? `<span> ${list_view.title.slice(0, 29)} ... </span>` : `<span> ${list_view.title}</span>`}
       <br>
-      <small> ${list_view.tagline} </small>
-      <hr>
-      `;
+      <small> ${list_view.tagline} </small> 
+      <br>
+      <br>`;
 
-      let div_panah = document.createElement("div");
-      div_panah.className = "icon";
-      div_panah.innerHTML = `<img src = "icon panah.png" />`;
-      console.log(div_panah);
+      let div_icon = document.createElement("div");
+      div_icon.className = "icon";
+
+      div_icon.innerHTML = "<img src='icon panah.png' />";
       container.appendChild(div_img);
       container.appendChild(div_content);
-      container.appendChild(div_panah);
+      container.appendChild(div_icon);
     })
   );
