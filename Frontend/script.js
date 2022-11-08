@@ -62,39 +62,32 @@ fetch("tmdbMovies.json")
             </p>
           </div>
 
-          <div class = "writer">
-              <p> ${tom_jerry.writers[0].name}
-              <br>
-              <span> Writers </span>
-              </p>
-
-              <p> ${tom_jerry.writers[1].name}
-              <br>
-              <span> Writers </span>
-              </p>
-
-            
-              <p> ${tom_jerry.writers[2].name}
-              <br>
-              <span> Writers </span>
-              </p>
-          </div>
-
-          <div class = "cast">
-              
-              <p> ${tom_jerry.cast[0].name}
-              <br>
-              <span> Casts </span>
-
-              <p> ${tom_jerry.cast[1].name}
-              <br>
-              <span> Casts </span>
-                      
-              <p> ${tom_jerry.cast[2].name}
-              <br>
-              <span> Casts </span>
-          </div>
+          <div class = "writer"></div>
+          <div class = "cast"></div>
         </section>
       </main>`;
+
+      let penulis = tom_jerry.writers;
+      let writers = "";
+      penulis.map((writer) => {
+        writers += `
+             <p> ${writer.name}
+             <br>
+             <span> Writers </span>
+             </p>          
+          `;
+      });
+      document.querySelector(".writer").innerHTML = writers;
+
+      let casts = tom_jerry.cast;
+      let pemain = "";
+
+      casts.map((cast) => {
+        pemain += `
+          <p> ${cast.name}
+          <br>
+          <span> Casts </span>`;
+      });
+      document.querySelector(".cast").innerHTML = pemain;
     });
   });
