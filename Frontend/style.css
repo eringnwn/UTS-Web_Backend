@@ -64,6 +64,10 @@ body {
   right: 7px;
 }
 
+.header .icon_head a {
+  text-decoration: none;
+}
+
 .header .text_head {
   margin: 0 6rem;
   position: relative;

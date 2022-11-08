@@ -2,14 +2,14 @@
 fetch("tmdbMovies.json")
   .then((response) => response.json())
   .then((movies) => {
-    let movieList = '';
+    let movieList = "";
     movies.map((movie) => {
       movieList += `
         <div class="card">
           <img class="poster-image" src="http://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}" alt="${movie.title}">
           <div class="wrapper">
             <div class="description">
-              <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + '...' : movie.title}</h2>
+              <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>
               <p>${movie.tagline}</p>
             </div>
             <a href="movie.html">
@@ -29,17 +29,18 @@ fetch("tmdbMovies.json")
     let movie = movies.slice(4, 5);
     let container_movie = document.querySelector(".container");
     movie.map((tom_jerry) => {
-      container_movie.innerHTML = `
-      <header class ="header" >
-        <div class = "icon_head">
-          <img src = "panah_kiri.png" />
-          <span> Back </span>
-        </div>
+      container_movie.innerHTML = `<header class ="header" >
+          <div class = "icon_head">
+          <a href = "index.html">
+            <img src = "panah_kiri.png" />
+            <span> Back</span>
+          </a>            
+          </div>
 
-        <div class = "text_head">
-          <h3> ${tom_jerry.title} </h3>
-        </div>
-      </header>
+          <div class = "text_head">
+            <h3> ${tom_jerry.title} </h3>
+          </div>
+        </header>
       
       <main class = "main">
         <section class = "thumbnail">
