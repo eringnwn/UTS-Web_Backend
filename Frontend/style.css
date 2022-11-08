@@ -5,36 +5,42 @@ body {
 }
 
 /* CSS index.html */
-.index {
-  display: grid;
-  grid-template-columns: 20% 75% 30%;
+#movie-list .card {
+  display: flex;
+  margin-bottom: 0.125rem;
 }
-
-.img img {
-  width: 85px;
-  height: 85px;
+#movie-list .card .poster-image {
+  height: 90px;
+  width: 90px;
   object-fit: cover;
+  padding-bottom: 4px;
 }
-
-.content {
-  padding-top: 10px;
-  border-bottom: 1px solid gray;
+#movie-list .card .wrapper {
+  display: flex;
+  align-items: center;
+  flex: auto;
+  border-bottom: 1px solid #c9c9c9;
+  margin-left: 1rem;
 }
-
-.content span {
-  font-weight: 400;
-  font-size: 20px;
+#movie-list .card .wrapper .description {
+  flex: auto;
 }
-
-.icon {
-  padding: 20px 5px 10px;
-  border-bottom: 1px solid gray;
-  width: fit-content;
-  cursor: pointer;
+#movie-list .card .wrapper .description h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
 }
-.content small {
-  color: gray;
-  font-size: 15px;
+#movie-list .card .wrapper .description p {
+  color: #b9b5b5;
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+#movie-list .card .wrapper .detail-view-arrow {
+  height: 25px;
+  width: 30px;
+  padding-right: 0.5rem;
 }
 
 /* CSS TASK movie.html */

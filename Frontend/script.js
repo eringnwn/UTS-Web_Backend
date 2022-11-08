@@ -1,33 +1,28 @@
 // Task No 1
 fetch("tmdbMovies.json")
   .then((response) => response.json())
-  .then((movies) =>
-    movies.map((list_view) => {
-      let container = document.querySelector(".index");
-      let div_img = document.createElement("div");
-      div_img.className = "img";
-      div_img.innerHTML = `<img src = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/${list_view.poster_path}"/>`;
+  .then((movies) => {
+    let movieList = '';
+    movies.map((movie) => {
+      movieList += `
+        <div class="card">
+          <img class="poster-image" src="http://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}" alt="${movie.title}">
+          <div class="wrapper">
+            <div class="description">
+              <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + '...' : movie.title}</h2>
+              <p>${movie.tagline}</p>
+            </div>
+            <a href="movie.html">
+              <img class="detail-view-arrow" src="panah_kanan.png" alt="Arrow">
+            </a>
+          </div>
+        </div>
+      `;
+    });
+    document.querySelector("#movie-list").innerHTML = movieList;
+  });
 
-      let div_content = document.createElement("div");
-      div_content.className = "content";
-      div_content.innerHTML = `
-      ${list_view.title.length >= 29 ? `<span> ${list_view.title.slice(0, 29)} ... </span>` : `<span> ${list_view.title}</span>`}
-      <br>
-      <small> ${list_view.tagline} </small>
-      <br>
-      <br>`;
-
-      let div_icon = document.createElement("div");
-      div_icon.className = "icon";
-
-      div_icon.innerHTML = "<img src='panah_kanan.png' />";
-      container.appendChild(div_img);
-      container.appendChild(div_content);
-      container.appendChild(div_icon);
-    })
-  );
-
-// TASK NO 2
+// Task No 2
 fetch("tmdbMovies.json")
   .then((response) => response.json())
   .then((movies) => {
