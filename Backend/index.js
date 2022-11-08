@@ -35,7 +35,7 @@ app.put("/api/movie/:id", (req, res) => {
     const idx = movies.indexOf(getMovie);
     const updatedMovie = { ...getMovie, ...movie };
     movies[idx] = updatedMovie;
-    res.send({ id });
+    res.send({ id: updatedMovie.id });
   } else {
     res.status(404).send({ message: "Movie is not found" });
   }
