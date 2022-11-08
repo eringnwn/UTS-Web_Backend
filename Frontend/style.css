@@ -43,18 +43,18 @@ body {
 
 /* CSS TASK movie.html */
 
-header {
+.header {
   background-color: #f2f2f2;
   border: 0.5px solid #e1e4e8;
   display: flex;
 }
 
-header .icon_head {
+.header .icon_head {
   margin: auto 0;
   cursor: pointer;
 }
 
-header .icon_head span {
+.header .icon_head span {
   color: #3880ff;
   font-size: 20px;
   position: relative;
@@ -62,25 +62,25 @@ header .icon_head span {
   right: 7px;
 }
 
-header .text_head {
+.header .text_head {
   margin: 0 6rem;
   position: relative;
   bottom: 5px;
 }
 
-main .thumbnail {
+.main .thumbnail {
   text-align: center;
   background-color: #fcfcfc;
   padding-bottom: 10px;
 }
 
-main .thumbnail img {
+.main .thumbnail img {
   padding-top: 20px;
   width: 250px;
   object-fit: cover;
 }
 
-main .thumbnail span {
+.main .thumbnail span {
   margin: 0;
   color: gray;
   padding: 0;
@@ -88,29 +88,29 @@ main .thumbnail span {
   font-weight: normal;
 }
 
-main .overview h3 {
+.main .overview h3 {
   padding: 0 20px;
   margin: 0;
   background-color: #e6e6e6;
   line-height: 1.5;
 }
 
-main .isi_txt {
+.main .isi_txt {
   padding: 5px 20px;
   background-color: #fcfcfc;
 }
 
-main .isi_txt p,
+.main .isi_txt p,
 .writer {
   font-size: 20px;
 }
 
-main .isi_txt span {
+.main .isi_txt span {
   color: gray;
   font-size: 15px;
 }
 
-main .isi_txt .writer,
+.main .isi_txt .writer,
 .cast {
   display: grid;
   grid-template-columns: 50% 50%;
