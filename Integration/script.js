@@ -1,5 +1,5 @@
 // Task No 1
-fetch("tmdbMovies.json")
+fetch("http://localhost:3000/api/movies")
   .then((response) => response.json())
   .then((movies) => {
     let movieList = "";
@@ -23,7 +23,7 @@ fetch("tmdbMovies.json")
   });
 
 // Task No 2
-fetch("tmdbMovies.json")
+fetch("http://localhost:3000/api/movies")
   .then((response) => response.json())
   .then((movies) => {
     let movie = movies.slice(4, 5);

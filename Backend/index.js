@@ -1,12 +1,12 @@
 const express = require("express");
-
 const app = express();
+const cors = require("cors");
 const host = "localhost";
 const port = 3000;
 
 let movies = require(__dirname + "/tmdbMovies.json");
 
-app.use(express.json());
+app.use(express.json(), cors());
 app.use(express.urlencoded({ extended: false }));
 
 // mengembalikan semua data movies dalam format JSON (array object)
