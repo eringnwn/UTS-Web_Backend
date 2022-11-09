@@ -1,0 +1,118 @@
+body {
+  width: 500px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* List View - index.html */
+#list-view .card {
+  display: flex;
+  margin-bottom: 0.125rem;
+}
+#list-view .card .poster-image {
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+  padding-bottom: 4px;
+}
+#list-view .card .wrapper {
+  display: flex;
+  align-items: center;
+  flex: auto;
+  border-bottom: 1px solid #c9c9c9;
+  margin-left: 1rem;
+}
+#list-view .card .wrapper .description {
+  flex: auto;
+}
+#list-view .card .wrapper .description h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+#list-view .card .wrapper .description p {
+  color: #b9b5b5;
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+#list-view .card .wrapper .detail-view-arrow {
+  height: 25px;
+  width: 30px;
+  padding-right: 0.5rem;
+}
+
+/* Detail View - movie.html */
+#detail-view header {
+  background-color: #f2f2f2;
+  border: 0.5px solid #e1e4e8;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#detail-view header h1 {
+  font-size: 1.25rem;
+}
+#detail-view header .icon {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+#detail-view header .icon span {
+  color: #3880ff;
+  font-size: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+#detail-view main .thumbnail {
+  text-align: center;
+  background-color: #fcfcfc;
+  padding-bottom: 1.75rem;
+}
+#detail-view main .thumbnail img {
+  padding-top: 20px;
+  width: 250px;
+  object-fit: cover;
+}
+#detail-view main .thumbnail .title {
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+#detail-view main .thumbnail p {
+  margin: 0;
+  color: gray;
+  font-size: 1.15rem;
+}
+#detail-view main .overview {
+  padding: 0.125rem 1.25rem;
+  margin: 0;
+  background-color: #e6e6e6;
+  line-height: 1.5;
+}
+#detail-view main .content {
+  background-color: #fcfcfc;
+  font-size: 1.25rem;
+  padding: 0.25rem 1.25rem;
+}
+#detail-view main .content .overview-text {
+  margin-bottom: 2.5rem;
+}
+#detail-view main .content .grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 1rem;
+}
+#detail-view main .content .grid-item .name {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#detail-view main .content .grid-item .position {
+  color: gray;
+  font-size: 1.1rem;
+  margin-top: 0.125rem;
+}
