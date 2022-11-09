@@ -28,7 +28,7 @@ const loadListView = () => {
         <main>${movieList}</main>
       `;
     });
-}
+};
 
 // Detail View - movie.html
 const loadDetailView = () => {
@@ -36,17 +36,17 @@ const loadDetailView = () => {
     .then((response) => response.json())
     .then((movies) => {
       const movie = movies[4];
-  
+
       let directors = "";
       movie.directors.map((director) => {
         directors += `
           <div class="grid-item">
             <p class="name">${director.name}</p>
-            <p class="position">directors</p>
+            <p class="position">Directors</p>
           </div>
         `;
       });
-  
+
       let writers = "";
       movie.writers.map((writer) => {
         writers += `
@@ -56,7 +56,7 @@ const loadDetailView = () => {
           </div>
         `;
       });
-  
+
       let pemain = "";
       movie.cast.map((cast) => {
         pemain += `
@@ -94,4 +94,4 @@ const loadDetailView = () => {
         </main>
       `;
     });
-}
+};
