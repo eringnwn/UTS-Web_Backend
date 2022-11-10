@@ -128,7 +128,7 @@ const getRoute = (route) => {
 
 const router = (e) => {
   const path = window.location.pathname.split('/');
-  const url = '/' + path[3];
+  const url = '/' + path[path.length-1];
   
   //masih dipertanyakan bole nggak lgsg idx ke tiga. krn kita dari /UTS-Web_Backend/Integration/index.html. jadi index.html ketiga gt
   console.log("url=", url);
