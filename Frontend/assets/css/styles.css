@@ -7,13 +7,12 @@ body {
 /* List View - index.html */
 #list-view .card {
   display: flex;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.25rem;
 }
 #list-view .card .poster-image {
   height: 90px;
   width: 90px;
   object-fit: cover;
-  padding-bottom: 4px;
 }
 #list-view .card .wrapper {
   display: flex;
