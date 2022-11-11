@@ -10,7 +10,7 @@ const loadListView = () => {
       movies.map((movie) => {
         movieList += `
           <div class="card">
-            <img class="poster-image" src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}">
+            <div><img class="poster-image" src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}"></div>
             <div class="wrapper">
               <div class="description">
                 <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>

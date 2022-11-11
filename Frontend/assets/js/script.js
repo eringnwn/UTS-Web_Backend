@@ -1,4 +1,4 @@
-const tmdbImage = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+const TMDB_IMAGE_URL = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
 
 // List View - index.html
 const loadListView = () => {
@@ -9,7 +9,7 @@ const loadListView = () => {
       movies.map((movie) => {
         movieList += `
           <div class="card">
-            <img class="poster-image" src="${tmdbImage + movie.poster_path}" alt="${movie.title}">
+            <div><img class="poster-image" src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}"></div>
             <div class="wrapper">
               <div class="description">
                 <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>
@@ -78,7 +78,7 @@ const loadDetailView = () => {
         
         <main>
           <section class="thumbnail">
-            <img src="${tmdbImage + movie.poster_path}" alt="${movie.title}">
+            const TMDB_IMAGE_URL = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
             <h2 class="title"><b>${movie.title}</b> (${movie.release_date.slice(0, 4)})</h2>
             <p>${movie.certification} | ${movie.release_date} | ${movie.original_language}</p>
           </section>
