@@ -1,94 +1,146 @@
-// Task No 1
-fetch("http://localhost:3000/api/movies")
-  .then((response) => response.json())
-  .then((movies) => {
-    let movieList = "";
-    movies.map((movie) => {
-      movieList += `
-        <div class="card">
-          <img class="poster-image" src="http://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}" alt="${movie.title}">
-          <div class="wrapper">
-            <div class="description">
-              <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>
-              <p>${movie.tagline}</p>
+const tmdbImage = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+
+// List View - index.html
+const loadListView = () => {
+  fetch("http://localhost:3000/api/movies")
+    .then((response) => response.json())
+    .then((movies) => {
+      let movieList = "";
+      movies.map((movie) => {
+        movieList += `
+          <div class="card">
+            <img class="poster-image" src="${tmdbImage + movie.poster_path}" alt="${movie.title}">
+            <div class="wrapper">
+              <div class="description">
+                <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>
+                <p>${movie.tagline}</p>
+              </div>
+              <a href="movie.html#${movie.id}">
+                <img class="detail-view-arrow" src="assets/img/panah-kanan.png" alt="Arrow">
+              </a>
             </div>
-            <a href="movie.html">
-              <img class="detail-view-arrow" src="panah_kanan.png" alt="Arrow">
-            </a>
           </div>
-        </div>
+        `;
+      });
+
+      document.querySelector(".container").innerHTML = `
+        <header><h1>Popular Movies</h1></header>
+        <main>${movieList}</main>
       `;
     });
-    document.querySelector("#movie-list").innerHTML = movieList;
-  });
+};
 
 // Task No 2
-fetch("http://localhost:3000/api/movies")
-  .then((response) => response.json())
-  .then((movies) => {
-    let movie = movies.slice(4, 5);
-    let container_movie = document.querySelector(".container");
-    movie.map((tom_jerry) => {
-      container_movie.innerHTML = `
-      <header class ="header" >
-          <div class = "icon_head">
-          <a href = "index.html">
-            <img src = "panah_kiri.png" />
-            <span> Back</span>
-          </a>            
+const loadDetailView = (id) => {
+  const url = "http://localhost:3000/api/movie/" + id;
+  console.log('url2 = ' ,url);
+  fetch(url)
+    .then((response) => response.json())
+    .then((movie) => {
+      console.log(movie);
+
+      let directors = "";
+      movie.directors.map((director) => {
+        directors += `
+          <div class="grid-item">
+            <p class="name">${director.name}</p>
+            <p class="position">Directors</p>
           </div>
+        `;
+      });
 
-          <div class = "text_head">
-            <h3> ${tom_jerry.title} </h3>
-          </div>
-        </header>
-      
-      <main class = "main">
-        <section class = "thumbnail">
-          <img src = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/${tom_jerry.poster_path}"/>
-          <h3> ${tom_jerry.title} (${tom_jerry.release_date.slice(0, 4)})
-          <br>
-          <span>  ${tom_jerry.certification} | ${tom_jerry.release_date} | ${tom_jerry.original_language} </span>
-          </h3>
-        </section>
-
-        <section class = "overview"> <h3> Overview </h3> </section>
-
-        <section class = "isi_txt">
-          <div class = "director">
-            <p> ${tom_jerry.overview} </p>
-            <p> ${tom_jerry.directors[0].name}
-            <br>
-            <span> Director </span>
-            </p>
-          </div>
-
-          <div class = "writer"></div>
-          <div class = "cast"></div>
-        </section>
-      </main>`;
-
-      let penulis = tom_jerry.writers;
       let writers = "";
-      penulis.map((writer) => {
+      movie.writers.map((writer) => {
         writers += `
-             <p> ${writer.name}
-             <br>
-             <span> Writers </span>
-             </p>          
-          `;
+          <div class="grid-item">
+            <p class="name">${writer.name}</p>
+            <p class="position">Writers</p>
+          </div>
+        `;
       });
-      document.querySelector(".writer").innerHTML = writers;
 
-      let casts = tom_jerry.cast;
       let pemain = "";
-
-      casts.map((cast) => {
+      movie.cast.map((cast) => {
         pemain += `
-          <p> ${cast.name}
-          <br>
-          <span> Casts </span>`;
+          <div class="grid-item">
+            <p class="name">${cast.name}</p>
+            <p class="position">Casts</p>
+          </div>
+        `;
       });
-      document.querySelector(".cast").innerHTML = pemain;
+
+      document.querySelector(".container").innerHTML = `
+        <header>
+          <a class="icon" href="index.html">
+            <img src="panah-kiri.png">
+            <span>Back</span>
+          </a>
+          <h1 class="title">${movie.title}</h1>
+        </header>
+        
+        <main>
+          <section class="thumbnail">
+            <img src="${tmdbImage + movie.poster_path}" alt="${movie.title}">
+            <h2 class="title"><b>${movie.title}</b> (${movie.release_date.slice(0, 4)})</h2>
+            <p>${movie.certification} | ${movie.release_date} | ${movie.original_language}</p>
+          </section>
+  
+          <h3 class="overview">Overview</h3>
+  
+          <section class="content">
+            <p class="overview-text">${movie.overview}</p>
+            <div class="grid">${directors}</div>
+            <div class="grid">${writers}</div>
+            <div class="grid">${pemain}</div>
+          </section>
+        </main>
+      `;
     });
-  });
+}
+
+const loadMovie = (id) => {
+  fetch("movie.html")
+  .then(response => response.text())
+  .then(text => {
+    document.getElementsByTagName('body').innerHTML = text;
+  })
+  .then(loadDetailView(id));
+}
+
+// const route(path, )
+const routes = {};
+
+const route = (path, func) => {
+  routes[path] = func;
+  return;
+}
+route('/index.html', loadListView);
+route('/movie.html', loadMovie);
+
+const getRoute = (route) => {
+  try{
+    console.log(typeof routes[route]);
+    return routes[route];
+  } catch (err) {
+    return;
+  };
+}
+
+const router = (e) => {
+  const path = window.location.pathname.split('/');
+  const url = '/' + path[path.length-1];
+  
+  //masih dipertanyakan bole nggak lgsg idx ke tiga. krn kita dari /UTS-Web_Backend/Integration/index.html. jadi index.html ketiga gt
+  console.log("url=", url);
+
+  const route = getRoute(url);
+  if (url == '/movie.html'){
+    const id = window.location.hash.slice(1);
+    route(id);
+  } else {
+    route();
+  }
+}
+
+window.addEventListener('load', router);
+window.addEventListener('hashchange', router);

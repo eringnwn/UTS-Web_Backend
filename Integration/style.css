@@ -4,120 +4,117 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* CSS index.html */
-#movie-list .card {
+/* List View - index.html */
+#list-view .card {
   display: flex;
   margin-bottom: 0.125rem;
 }
-#movie-list .card .poster-image {
+#list-view .card .poster-image {
   height: 90px;
   width: 90px;
   object-fit: cover;
   padding-bottom: 4px;
 }
-#movie-list .card .wrapper {
+#list-view .card .wrapper {
   display: flex;
   align-items: center;
   flex: auto;
   border-bottom: 1px solid #c9c9c9;
   margin-left: 1rem;
 }
-#movie-list .card .wrapper .description {
+#list-view .card .wrapper .description {
   flex: auto;
 }
-#movie-list .card .wrapper .description h2 {
+#list-view .card .wrapper .description h2 {
   font-size: 1.4rem;
   font-weight: 500;
   margin-top: 0.25rem;
   margin-bottom: 0;
 }
-#movie-list .card .wrapper .description p {
+#list-view .card .wrapper .description p {
   color: #b9b5b5;
   font-size: 1.25rem;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
 }
-#movie-list .card .wrapper .detail-view-arrow {
+#list-view .card .wrapper .detail-view-arrow {
   height: 25px;
   width: 30px;
   padding-right: 0.5rem;
 }
 
-/* CSS TASK movie.html */
-
-.header {
+/* Detail View - movie.html */
+#detail-view header {
   background-color: #f2f2f2;
   border: 0.5px solid #e1e4e8;
   display: flex;
-}
-
-.header .icon_head {
-  margin: auto 0;
-  cursor: pointer;
-}
-
-.header .icon_head span {
-  color: #3880ff;
-  font-size: 20px;
+  justify-content: center;
   position: relative;
-  bottom: 9.5px;
-  right: 7px;
 }
-
-.header .icon_head a {
+#detail-view header h1 {
+  font-size: 1.25rem;
+  text-align: center;
+  width: 250px;
+}
+#detail-view header .icon {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
-
-.header .text_head {
-  margin: 0 6rem;
-  position: relative;
-  bottom: 5px;
+#detail-view header .icon span {
+  color: #3880ff;
+  font-size: 1.25rem;
+  padding-bottom: 0.25rem;
 }
-
-.main .thumbnail {
+#detail-view main .thumbnail {
   text-align: center;
   background-color: #fcfcfc;
-  padding-bottom: 10px;
+  padding-bottom: 1.75rem;
 }
-
-.main .thumbnail img {
+#detail-view main .thumbnail img {
   padding-top: 20px;
   width: 250px;
   object-fit: cover;
 }
-
-.main .thumbnail span {
+#detail-view main .thumbnail .title {
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+#detail-view main .thumbnail p {
   margin: 0;
   color: gray;
-  padding: 0;
-  font-size: 17px;
-  font-weight: normal;
+  font-size: 1.15rem;
 }
-
-.main .overview h3 {
-  padding: 0 20px;
+#detail-view main .overview {
+  padding: 0.125rem 1.25rem;
   margin: 0;
   background-color: #e6e6e6;
   line-height: 1.5;
 }
-
-.main .isi_txt {
-  padding: 5px 20px;
+#detail-view main .content {
   background-color: #fcfcfc;
+  font-size: 1.25rem;
+  padding: 0.25rem 1.25rem;
 }
-
-.main .isi_txt p,
-.writer {
-  font-size: 20px;
+#detail-view main .content .overview-text {
+  margin-bottom: 2.5rem;
 }
-
-.main .isi_txt span {
-  color: gray;
-  font-size: 15px;
-}
-
-.main .isi_txt .writer,
-.cast {
+#detail-view main .content .grid {
   display: grid;
   grid-template-columns: 50% 50%;
+  margin-bottom: 1rem;
+}
+#detail-view main .content .grid-item .name {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#detail-view main .content .grid-item .position {
+  color: gray;
+  font-size: 1.1rem;
+  margin-top: 0.125rem;
 }
