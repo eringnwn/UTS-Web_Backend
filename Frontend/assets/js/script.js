@@ -78,7 +78,7 @@ const loadDetailView = () => {
         
         <main>
           <section class="thumbnail">
-            const TMDB_IMAGE_URL = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+            <img src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}">
             <h2 class="title"><b>${movie.title}</b> (${movie.release_date.slice(0, 4)})</h2>
             <p>${movie.certification} | ${movie.release_date} | ${movie.original_language}</p>
           </section>
