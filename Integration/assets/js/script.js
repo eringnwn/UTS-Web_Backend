@@ -33,13 +33,9 @@ const loadListView = () => {
 
 // Detail View - movie.html
 const loadDetailView = (id) => {
-  const url = API_URL + "api/movie/" + id;
-  console.log('url2 = ' ,url);
-  fetch(url)
+  fetch(API_URL + "api/movie/" + id)
     .then((response) => response.json())
     .then((movie) => {
-      console.log(movie);
-
       let directors = "";
       movie.directors.map((director) => {
         directors += `
@@ -99,49 +95,17 @@ const loadDetailView = (id) => {
     });
 }
 
-const loadMovie = (id) => {
-  fetch("movie.html")
-  .then(response => response.text())
-  .then(text => {
-    document.getElementsByTagName('body').innerHTML = text;
-  })
-  .then(loadDetailView(id));
-}
-
-// const route(path, )
-const routes = {};
-
-const route = (path, func) => {
-  routes[path] = func;
-  return;
-}
-route('/index.html', loadListView);
-route('/movie.html', loadMovie);
-
-const getRoute = (route) => {
-  try{
-    console.log(typeof routes[route]);
-    return routes[route];
-  } catch (err) {
-    return;
-  };
-}
-
-const router = (e) => {
+// Change the HTML content dynamically based on URL
+const router = () => {
   const path = window.location.pathname.split('/');
-  const url = '/' + path[path.length-1];
+  const filename = path[path.length - 1];
   
-  //masih dipertanyakan bole nggak lgsg idx ke tiga. krn kita dari /UTS-Web_Backend/Integration/index.html. jadi index.html ketiga gt
-  console.log("url=", url);
-
-  const route = getRoute(url);
-  if (url == '/movie.html'){
+  if (filename === 'movie.html') {
     const id = window.location.hash.slice(1);
-    route(id);
+    loadDetailView(id);
   } else {
-    route();
+    loadListView();
   }
 }
-
 window.addEventListener('load', router);
 window.addEventListener('hashchange', router);
