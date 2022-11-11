@@ -10,12 +10,12 @@ let movies = require(__dirname + "/tmdbMovies.json");
 app.use(express.json(), cors());
 app.use(express.urlencoded({ extended: false }));
 
-// mengembalikan semua data movies dalam format JSON (array object)
+// Mengembalikan semua data movies dalam format JSON (array object)
 app.get("/api/movies", (req, res) => {
   res.json(movies);
 });
 
-// mengembalikan data sesuai id movie dalam format JSON (object)
+// Mengembalikan data sesuai id movie dalam format JSON (object)
 app.get("/api/movie/:id", (req, res) => {
   const id = Number(req.params.id);
   const getMovie = movies.find((movie) => movie.id == id);
@@ -27,6 +27,7 @@ app.get("/api/movie/:id", (req, res) => {
   }
 });
 
+// Mengubah data sesuai id movie
 app.put("/api/movie/:id", (req, res) => {
   const id = Number(req.params.id);
   const movie = req.body;
@@ -42,6 +43,7 @@ app.put("/api/movie/:id", (req, res) => {
   }
 });
 
+// Menghapus data sesuai id movie
 app.delete("/api/movie/:id", (req, res) => {
   const id = Number(req.params.id);
   const remainingMovies = movies.filter((movie) => movie.id != id);
