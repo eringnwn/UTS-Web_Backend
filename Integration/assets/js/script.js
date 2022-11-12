@@ -79,7 +79,7 @@ const loadDetailView = (id) => {
           <section class="thumbnail">
             <img src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}">
             <h2 class="title"><b>${movie.title}</b> (${movie.release_date.slice(0, 4)})</h2>
-            <p>${movie.certification} | ${movie.release_date} | ${movie.original_language}</p>
+            <p>${movie.certification || "None"} | ${movie.release_date} | ${movie.original_language}</p>
           </section>
   
           <h3 class="overview">Overview</h3>
@@ -93,19 +93,21 @@ const loadDetailView = (id) => {
         </main>
       `;
     });
-}
+};
 
 // Change the HTML content dynamically based on URL
 const router = () => {
-  const path = window.location.pathname.split('/');
+  const path = window.location.pathname.split("/");
   const filename = path[path.length - 1];
-  
-  if (filename === 'movie.html') {
+  console.log(filename);
+
+  if (filename === "movie.html") {
     const id = window.location.hash.slice(1);
+    console.log(id);
     loadDetailView(id);
   } else {
     loadListView();
   }
-}
-window.addEventListener('load', router);
-window.addEventListener('hashchange', router);
+};
+window.addEventListener("load", router);
+window.addEventListener("hashchange", router);
