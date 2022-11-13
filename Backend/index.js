@@ -47,6 +47,7 @@ app.put("/api/movie/:id", (req, res) => {
 app.delete("/api/movie/:id", (req, res) => {
   const id = Number(req.params.id);
   const remainingMovies = movies.filter((movie) => movie.id != id);
+  
   if (remainingMovies.length != movies.length) {
     res.send({ message: "Movie deleted successfully" });
   } else {

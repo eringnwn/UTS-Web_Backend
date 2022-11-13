@@ -1,9 +1,9 @@
 const TMDB_IMAGE_URL = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
-const API_URL = "http://localhost:3000/";
+const API_URL = "http://localhost:3000/api";
 
 // List View - index.html
 const loadListView = () => {
-  fetch(API_URL + "api/movies")
+  fetch(API_URL + "/movies")
     .then((response) => response.json())
     .then((movies) => {
       let movieList = "";
@@ -33,7 +33,7 @@ const loadListView = () => {
 
 // Detail View - movie.html
 const loadDetailView = (id) => {
-  fetch(API_URL + "api/movie/" + id)
+  fetch(API_URL + "/movie/" + id)
     .then((response) => response.json())
     .then((movie) => {
       let directors = "";
@@ -99,11 +99,9 @@ const loadDetailView = (id) => {
 const router = () => {
   const path = window.location.pathname.split("/");
   const filename = path[path.length - 1];
-  console.log(filename);
 
   if (filename === "movie.html") {
     const id = window.location.hash.slice(1);
-    console.log(id);
     loadDetailView(id);
   } else {
     loadListView();
