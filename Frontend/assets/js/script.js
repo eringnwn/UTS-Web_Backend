@@ -1,7 +1,4 @@
 const TMDB_IMAGE_URL = "http://image.tmdb.org/t/p/w600_and_h900_bestv2/";
-
-// List View - index.html
-
 const movies = [
   {
     budget: 200000000,
@@ -725,148 +722,91 @@ const movies = [
     trailer_yt: "u3rtVNSC-FU",
   },
 ];
-let movieList = "";
-movies.map((movie) => {
-  movieList += `
-          <div class="card">
-            <div><img class="poster-image" src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}"></div>
-            <div class="wrapper">
-              <div class="description">
-                <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>
-                <p>${movie.tagline}</p>
-              </div>
-              <a href="movie.html">
-                <img class="detail-view-arrow" src="assets/img/panah-kanan.png" alt="Arrow">
-              </a>
-            </div>
-          </div>
-        `;
-});
 
-document.querySelector(".container").innerHTML = `
-        <header><h1>Popular Movies</h1></header>
-        <main>${movieList}</main>
-      `;
+// List View - index.html
+const loadListView = () => {
+  let movieList = "";
+  movies.map((movie) => {
+    movieList += `
+      <div class="card">
+        <div><img class="poster-image" src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}"></div>
+        <div class="wrapper">
+          <div class="description">
+            <h2>${movie.title.length >= 29 ? movie.title.slice(0, 29) + "..." : movie.title}</h2>
+            <p>${movie.tagline}</p>
+          </div>
+          <a href="movie.html">
+            <img class="detail-view-arrow" src="assets/img/panah-kanan.png" alt="Arrow">
+          </a>
+        </div>
+      </div>
+    `;
+  });
+
+  document.querySelector(".container").innerHTML = `
+    <header><h1>Popular Movies</h1></header>
+    <main>${movieList}</main>
+  `;
+};
 
 // Detail View - movie.html
 const loadDetailView = () => {
-  const movie = {
-    budget: 50000000,
-    genres: ["Comedy", "Family", "Animation"],
-    homepage: "https://www.tomandjerrymovie.com",
-    id: 587807,
-    original_language: "English",
-    overview:
-      "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
-    popularity: 1454.107,
-    poster_path: "/6KErczPBROQty7QoIsaa6wJYXZi.jpg",
-    release_date: "2021-02-11",
-    revenue: 66890000,
-    runtime: 101,
-    tagline: "Best of enemies. Worst of friends.",
-    title: "Tom & Jerry",
-    vote_average: 7.3,
-    vote_count: 1157,
-    external_ids: {
-      imdb_id: "tt1361336",
-      facebook_id: "TomandJerry",
-      instagram_id: "tomandjerry",
-      twitter_id: "TomAndJerry",
-    },
-    similar: [
-      { id: 420817, title: "Aladdin" },
-      { id: 454626, title: "Sonic the Hedgehog" },
-      { id: 6477, title: "Alvin and the Chipmunks" },
-      { id: 329996, title: "Dumbo" },
-      { id: 512895, title: "Lady and the Tramp" },
-      { id: 55301, title: "Alvin and the Chipmunks: Chipwrecked" },
-      { id: 258509, title: "Alvin and the Chipmunks: The Road Chip" },
-      { id: 23398, title: "Alvin and the Chipmunks: The Squeakquel" },
-      { id: 122, title: "The Lord of the Rings: The Return of the King" },
-      { id: 121, title: "The Lord of the Rings: The Two Towers" },
-      {
-        id: 120,
-        title: "The Lord of the Rings: The Fellowship of the Ring",
-      },
-      { id: 420814, title: "Christopher Robin" },
-      { id: 381719, title: "Peter Rabbit" },
-      { id: 420818, title: "The Lion King" },
-      { id: 433, title: "Mary Poppins" },
-      { id: 400650, title: "Mary Poppins Returns" },
-      { id: 278927, title: "The Jungle Book" },
-      { id: 150689, title: "Cinderella" },
-      { id: 321612, title: "Beauty and the Beast" },
-      { id: 15947, title: "The Three Caballeros" },
-    ],
-    certification: "PG",
-    directors: [{ id: 20400, name: "Tim Story" }],
-    writers: [
-      { id: 13594, name: "Joseph Barbera" },
-      { id: 13620, name: "William Hanna" },
-      { id: 1640647, name: "Kevin Costello" },
-    ],
-    cast: [
-      { id: 56734, name: "Chloë Grace Moretz" },
-      { id: 454, name: "Michael Peña" },
-      { id: 1226277, name: "Colin Jost" },
-    ],
-    trailer_yt: "kP9TfCWaQT4",
-  };
+  const movie = movies[4];
 
   let directors = "";
   movie.directors.map((director) => {
     directors += `
-          <div class="grid-item">
-            <p class="name">${director.name}</p>
-            <p class="position">Directors</p>
-          </div>
-        `;
+      <div class="grid-item">
+        <p class="name">${director.name}</p>
+        <p class="position">Directors</p>
+      </div>
+    `;
   });
 
   let writers = "";
   movie.writers.map((writer) => {
     writers += `
-          <div class="grid-item">
-            <p class="name">${writer.name}</p>
-            <p class="position">Writers</p>
-          </div>
-        `;
+      <div class="grid-item">
+        <p class="name">${writer.name}</p>
+        <p class="position">Writers</p>
+      </div>
+    `;
   });
 
   let pemain = "";
   movie.cast.map((cast) => {
     pemain += `
-          <div class="grid-item">
-            <p class="name">${cast.name}</p>
-            <p class="position">Casts</p>
-          </div>
-        `;
+      <div class="grid-item">
+        <p class="name">${cast.name}</p>
+        <p class="position">Casts</p>
+      </div>
+    `;
   });
 
   document.querySelector(".container").innerHTML = `
-        <header>
-          <a class="icon" href="index.html">
-            <img src="assets/img/panah-kiri.png">
-            <span>Back</span>
-          </a>
-          <h1 class="title">${movie.title}</h1>
-        </header>
-        
-        <main>
-          <section class="thumbnail">
-            <img src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}">
-            <h2 class="title"><b>${movie.title}</b> (${movie.release_date.slice(0, 4)})</h2>
-            <p>${movie.certification} | ${movie.release_date} | ${movie.original_language}</p>
-          </section>
-  
-          <h3 class="overview">Overview</h3>
-  
-          <section class="content">
-            <p class="overview-text">${movie.overview}</p>
-            <div class="grid">${directors}</div>
-            <div class="grid">${writers}</div>
-            <div class="grid">${pemain}</div>
-          </section>
-        </main>
-      `;
+    <header>
+      <a class="icon" href="index.html">
+        <img src="assets/img/panah-kiri.png">
+        <span>Back</span>
+      </a>
+      <h1 class="title">${movie.title}</h1>
+    </header>
+    
+    <main>
+      <section class="thumbnail">
+        <img src="${TMDB_IMAGE_URL + movie.poster_path}" alt="${movie.title}">
+        <h2 class="title"><b>${movie.title}</b> (${movie.release_date.slice(0, 4)})</h2>
+        <p>${movie.certification} | ${movie.release_date} | ${movie.original_language}</p>
+      </section>
+
+      <h3 class="overview">Overview</h3>
+
+      <section class="content">
+        <p class="overview-text">${movie.overview}</p>
+        <div class="grid">${directors}</div>
+        <div class="grid">${writers}</div>
+        <div class="grid">${pemain}</div>
+      </section>
+    </main>
+  `;
 };

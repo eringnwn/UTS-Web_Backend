@@ -1,21 +1,26 @@
 body {
-  width: 500px;
+  width: 515px;
   margin: 0 auto;
   box-shadow: 0 0 10px #e1e4e8;
   background-color: #f2f3f3;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+@media (max-width: 550px) {
+  body {
+    width: fit-content;
+  }
+}
 
-div.container {
-  background-color: white;
+.container {
+  background-color: #fff;
 }
 
 /* List View - index.html */
 #list-view .container header h1 {
   font-size: 42px;
-  padding: 1rem;
-  padding-top: 2rem;
-  margin: 0;
+  padding: 2rem 1rem 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 #list-view .container main {
   padding-left: 1rem;
@@ -54,7 +59,7 @@ div.container {
 #list-view .card .wrapper .detail-view-arrow {
   height: 25px;
   width: 30px;
-  padding-right: 0.5rem;
+  padding-right: 0.75rem;
 }
 
 /* Detail View - movie.html */
@@ -77,6 +82,7 @@ div.container {
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding-left: 0.5rem;
 }
 #detail-view header .icon span {
   color: #3880ff;
@@ -85,7 +91,6 @@ div.container {
 }
 #detail-view main .thumbnail {
   text-align: center;
-  /* background-color: #fcfcfc; */
   padding-bottom: 1.75rem;
 }
 #detail-view main .thumbnail img {
@@ -111,7 +116,6 @@ div.container {
   font-size: 1.25rem;
 }
 #detail-view main .content {
-  /* background-color: #fcfcfc; */
   padding: 0.25rem 1.75rem;
   font-size: 1.25rem;
 }
